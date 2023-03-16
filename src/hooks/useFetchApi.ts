@@ -6,7 +6,7 @@ export interface useFetchApi {
 
 export const useFetchApi: useFetchApi = (text: string) => {
   useEffect(() => {
-    console.log('Effect!', text);
+    console.log('======', text);
   }, [text]);
 
   return text;
