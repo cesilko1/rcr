@@ -1,5 +1,5 @@
 {
-  "name": "@vilem/crc",
+  "name": "@vilem/rcr",
   "version": "0.1.0",
   "description": "React call rest - typesafe react hooks for simple calling rest api.",
   "main": "./dist/cjs/index.js",
