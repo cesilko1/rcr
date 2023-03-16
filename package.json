@@ -2,10 +2,18 @@
   "name": "@vilem/crc",
   "version": "0.1.0",
   "description": "React call rest - typesafe react hooks for simple calling rest api.",
-  "main": "index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "scripts": {
     "clean": "rm -rfv dist",
-    "build": "clean && tsc && cp package.json ./dist"
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build": "yarn clean && yarn build:esm && yarn build:cjs && cp package.json ./dist",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn prettier && yarn lint"
   },
   "repository": {
     "type": "git",
@@ -21,6 +29,11 @@
     "typescript",
     "typesafe"
   ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "author": "Vilém Raška",
   "license": "MIT",
   "bugs": {
@@ -33,5 +46,17 @@
     "react-dom": "^18.2.0",
     "typescript": "^4.9.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.4"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  }
 }
