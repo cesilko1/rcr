@@ -1,16 +1,15 @@
 {
   "name": "@vilem/rcr",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "React call rest - typesafe react hooks for simple calling rest api.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
-  "private": "false",
   "scripts": {
     "clean": "rm -rfv dist",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "build": "yarn clean && yarn build:esm && yarn build:cjs && cp package.json ./dist",
+    "build": "yarn clean && yarn build:esm && yarn build:cjs",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "yarn build",
@@ -42,9 +41,6 @@
   },
   "homepage": "https://github.com/cesilko1/rcr#readme",
   "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.9.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
@@ -54,7 +50,10 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "react": ">=16",
