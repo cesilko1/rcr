@@ -1,7 +1,13 @@
 import { useEffect } from 'react';
 
-export const useFetchApi = () => {
+export interface useFetchApi {
+  (text: string): string;
+}
+
+export const useFetchApi: useFetchApi = (text: string) => {
   useEffect(() => {
-    console.log('Effect!');
-  }, []);
+    console.log('Effect!', text);
+  }, [text]);
+
+  return text;
 };
