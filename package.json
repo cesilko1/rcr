@@ -33,7 +33,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "project",
+  "name": "@vilem/rcr",
   "author": "Vilém Raška",
   "module": "dist/project.esm.js",
   "size-limit": [
