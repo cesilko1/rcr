@@ -7,15 +7,9 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "example/.cache": true,
-    "example/dist": true,
-    "example/node_modules": true,
-    "node_modules": true
+    "example/.cache": true
   },
   "hide-files.files": [
-    "example/.cache",
-    "example/dist",
-    "example/node_modules",
-    "node_modules"
+    "example/.cache"
   ]
 }

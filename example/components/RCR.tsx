@@ -1,8 +1,8 @@
+import React from "react";
 import { PropsWithChildren } from "react";
-import { RCRProvider, ErrorHandlerOptions } from "../..";
-import * as React from 'react';
+import { RCRProvider, ErrorHandlerOptions } from "../../dist";
 
-export const RCR = ({ children }: PropsWithChildren<any>) => {
+const RCR = ({ children }: PropsWithChildren<any>) => {
   console.log("rendering");
   const errorHandler = (e: Error) => {
     console.log(e);
@@ -18,3 +18,5 @@ export const RCR = ({ children }: PropsWithChildren<any>) => {
     </RCRProvider>
   )
 }
+
+export default RCR;

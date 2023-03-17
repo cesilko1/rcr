@@ -1,1 +1,3 @@
-export * from './RCR';
+import RCR from './RCR';
+
+export { RCR };
