@@ -7,7 +7,7 @@ export type FetchApiOptions<T> = ErrorHandlerOptions & {
   revalidateOnArgsChange?: boolean;
 };
 
-export type ArgsWithOptions<T extends unknown[], K> = [...T] | [Partial<FetchApiOptions<K>>, ...T];
+export type ArgsWithOptions<T extends unknown[], K> = T[] | [Partial<FetchApiOptions<K>>, T[]];
 
 export type ApiHookRevalidate<T extends unknown[], K> = ApiHook<T, K> & {
   revalidate: () => Promise<CallResult<K>>;
