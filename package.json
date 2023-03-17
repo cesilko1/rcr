@@ -1,6 +1,6 @@
 {
   "name": "@vilem/rcr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "React call rest - typesafe react hooks for simple calling rest api.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
