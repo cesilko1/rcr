@@ -8,12 +8,12 @@
     "@types/react-dom": "^18.0.0",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
-    "@vilem/rcr": "file:../dist",
+    "rcr": "link:../dist",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build"
   },
   "eslintConfig": {
