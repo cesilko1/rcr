@@ -11,9 +11,11 @@
     "importHelpers": true,
     "declaration": true,
     "sourceMap": false,
-    "rootDir": "./src",
-    "baseUrl": "./src",
-    "outDir": "./dist/esm",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "outDir": "./dist",
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -24,5 +26,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "diagnostics": true
   }
 }

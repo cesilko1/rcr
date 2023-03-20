@@ -1,5 +1,5 @@
-import { RCRContext } from 'contexts';
-import { Callback, CallResult, ErrorHandlerOptions } from 'types';
+import { RCRContext } from '@/contexts';
+import { Callback, CallResult, ErrorHandlerOptions } from '@/types';
 import { useContext } from 'react';
 
 export interface HandlerErrorOptions {
