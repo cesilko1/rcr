@@ -1,5 +1,5 @@
-import { CallResult, Callback, ApiHook, ErrorHandlerOptions } from 'types';
-import { useErrorHandler } from 'utils';
+import { CallResult, Callback, ApiHook, ErrorHandlerOptions } from '../types';
+import { useErrorHandler } from '../utils';
 import { useState } from 'react';
 
 export type LazyFetchApiOptions = ErrorHandlerOptions;

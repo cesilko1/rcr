@@ -1,4 +1,4 @@
-import { ErrorHandlerOptions } from 'types';
+import { ErrorHandlerOptions } from '../types';
 import { PropsWithChildren, createContext, FC } from 'react';
 import * as React from 'react';
 
