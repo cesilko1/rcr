@@ -1,5 +1,5 @@
-import { Callback, ApiHook, CallResult, ErrorHandlerOptions } from '@/types';
-import { useErrorHandler } from '@/utils';
+import { Callback, ApiHook, CallResult, ErrorHandlerOptions } from '../types';
+import { useErrorHandler } from '../utils';
 import { useState } from 'react';
 
 export type MutateApiOptions = ErrorHandlerOptions;

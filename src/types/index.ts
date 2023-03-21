@@ -19,10 +19,12 @@ export interface ApiHook<T extends unknown[], K> {
   errorMessage?: string;
 }
 
-export interface ErrorHandler {
+export type ErrorHandler = {
   (e: Error): void | unknown;
+} | {
   (e: Error): Promise<void | unknown>;
 }
+
 export interface ErrorHandlerOptions {
   errorHandler?: ErrorHandler;
 }
