@@ -1,5 +1,5 @@
-import { CallResult, Callback, ApiHook, ErrorHandlerOptions } from '../types';
-import { useErrorHandler } from '../utils';
+import { CallResult, Callback, ApiHook, ErrorHandlerOptions } from '@/types';
+import { useErrorHandler } from '@/utils';
 import { useState, useEffect } from 'react';
 
 export type FetchApiOptions<T> = ErrorHandlerOptions & {
