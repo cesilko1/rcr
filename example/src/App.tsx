@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { useFetchApi } from 'rcr';
 
-const fetcher = async (data: number): Promise<string> => {
+const fetcher = async (data: string): Promise<string> => {
   throw new Error("error");
 }
 
 function App() {
-  const request = useFetchApi(fetcher, 156);
+  const request = useFetchApi(fetcher, {
+  }, "sdfsdf");
 
 
   return (
