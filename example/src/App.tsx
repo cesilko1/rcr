@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import { useFetchApi } from 'rcr';
+
+const fetcher = async (data: number): Promise<string> => {
+  throw new Error("error");
+}
 
 function App() {
+  const request = useFetchApi(fetcher, 156);
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +23,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {request.loading}
         </a>
       </header>
     </div>

@@ -1,5 +1,5 @@
-import { CallResult, Callback, ApiHook, ErrorHandlerOptions } from '@/types';
-import { useErrorHandler } from '@/utils';
+import { CallResult, Callback, ApiHook, ErrorHandlerOptions } from '../types';
+import { useErrorHandler } from '../utils';
 import { useState, useEffect } from 'react';
 
 export type FetchApiOptions<T> = ErrorHandlerOptions & {
@@ -7,7 +7,8 @@ export type FetchApiOptions<T> = ErrorHandlerOptions & {
   revalidateOnArgsChange?: boolean;
 };
 
-export type ArgsWithOptions<T extends unknown[], K> = T[] | [Partial<FetchApiOptions<K>>, T[]];
+// @ts-ignore
+export type ArgsWithOptions<T extends unknown[], K> = [...T] | [Partial<FetchApiOptions<K>>, [...T]];
 
 export type ApiHookRevalidate<T extends unknown[], K> = ApiHook<T, K> & {
   revalidate: () => Promise<CallResult<K>>;

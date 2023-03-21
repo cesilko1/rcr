@@ -12,10 +12,6 @@
     "declaration": true,
     "sourceMap": false,
     "rootDir": "./src",
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["./*"]
-    },
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -26,11 +22,5 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "plugins": [
-      {
-        "transform": "@zerollup/ts-transform-paths",
-        "afterDeclarations": true
-      }
-    ]
   }
 }

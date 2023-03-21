@@ -44,7 +44,6 @@
     "@size-limit/preset-small-lib": "^8.2.4",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@zerollup/ts-transform-paths": "^1.7.18",
     "husky": "^8.0.3",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
