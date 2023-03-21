@@ -1,5 +1,6 @@
 {
   "version": "1.0.0",
+  "description": "React call rest - typesafe react hooks for simple calling rest api.",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -30,6 +31,23 @@
   "name": "@vilem/rcr",
   "author": "Vilém Raška",
   "module": "dist/rcr.esm.js",
+  "keywords": [
+    "React",
+    "API",
+    "REST",
+    "hooks",
+    "axios",
+    "fetch",
+    "typescript",
+    "typesafe"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesilko1/rcr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cesilko1/rcr/issues"
+  },
   "size-limit": [
     {
       "path": "dist/rcr.cjs.production.min.js",

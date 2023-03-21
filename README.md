@@ -1,6 +1,6 @@
 # React call rest
 
-This is a simple library for calling api with reausable react hooks.
+React call rest - typesafe react hooks for simple calling rest api.
 
 ## Installation
 
