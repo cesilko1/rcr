@@ -17,7 +17,8 @@
     "lint": "tsdx lint src example test",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "format": "prettier --write src"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -62,6 +63,7 @@
     "@size-limit/preset-small-lib": "^8.2.4",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
