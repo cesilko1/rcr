@@ -32,19 +32,19 @@ jobs:
           name: Lint
           command: yarn lint
 
-  # build:
-  #   machine:
-  #     image: ubuntu-2204:current
-  #   resource_class: arm.medium
-  #   working_directory: ~/rcr
-  #   steps:
-  #     - attach_workspace:
-  #         at: ~/rcr
-  #     - run:
-  #         name: Build and push docker image to GHCR
-  #         command: |
-  #           DOCKER_IMAGE=ghcr.io/cesilko1/itz-app
-  #           DOCKER_TAG=${CIRCLE_TAG/v/''}
+  build:
+    machine:
+      image: ubuntu-2204:current
+    working_directory: ~/rcr
+    steps:
+      - attach_workspace:
+          at: ~/rcr
+      - run:
+          name: Build and publish package
+          command: |
+            VERSION_TAG=${CIRCLE_TAG/v/''}
+
+            echo $VERSION_TAG
 
   # deploy:
   #   machine:
@@ -63,6 +63,9 @@ workflows:
       - lint:
           requires:
             - install packages
+      - build:
+          requires:
+            - lint
 
   deploy:
     jobs:
@@ -92,13 +95,13 @@ workflows:
                 - /^v.*/
             branches:
               ignore: /.*/
-      - deploy:
-          requires:
-            - build
-          filters:
-            tags:
-              only:
-                - /^v.*/
-            branches:
-              ignore: /.*/
+      # - deploy:
+      #     requires:
+      #       - build
+      #     filters:
+      #       tags:
+      #         only:
+      #           - /^v.*/
+      #       branches:
+      #         ignore: /.*/
      
