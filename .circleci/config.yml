@@ -54,11 +54,8 @@ workflows:
       - lint:
           requires:
             - install packages
-      # - build-publish:
-      #     requires:
-      #       - lint
 
-  deploy:
+  publish:
     jobs:
       - install-packages:
           name: install packages
