@@ -43,10 +43,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cesilko1/rcr.git"
+    "url": "git+https://github.com/raska-vilem/rcr.git"
   },
   "bugs": {
-    "url": "https://github.com/cesilko1/rcr/issues"
+    "url": "https://github.com/raska-vilem/rcr/issues"
   },
   "size-limit": [
     {
