@@ -7,8 +7,13 @@ export type FetchApiOptions<T> = ErrorHandlerOptions & {
   revalidateOnArgsChange?: boolean;
 };
 
-// @ts-ignore
-export type ArgsWithOptions<T extends unknown[], K> = [...T] | [Partial<FetchApiOptions<K>>, ...T];
+export type ArgsWithOptions<T extends unknown[], K> =
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  | [...T]
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  | [Partial<FetchApiOptions<K>>, ...T];
 
 export type ApiHookRevalidate<T extends unknown[], K> = ApiHook<T, K> & {
   revalidate: () => Promise<CallResult<K>>;

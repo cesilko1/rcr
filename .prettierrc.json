@@ -7,5 +7,6 @@
   "jsxBracketSameLine": false,
   "parser":"typescript",
   "arrowParens": "always",
-  "semi": true
+  "semi": true,
+  "organizeImportsSkipDestructiveCodeActions": false
 }

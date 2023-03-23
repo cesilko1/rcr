@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React call rest - typesafe react hooks for simple calling rest api.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -13,12 +13,12 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint src example test",
+    "test": "",
+    "lint": "eslint --ext .js,.ts,.jsx,.tsx src",
+    "format": "yarn lint --fix && yarn prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why",
-    "format": "prettier --write src"
+    "analyze": "size-limit --why"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -61,11 +61,19 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.2.4",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.6",
+    "prettier-plugin-organize-imports": "^3.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "size-limit": "^8.2.4",
