@@ -32,9 +32,10 @@ jobs:
           name: Lint
           command: yarn lint
 
-  build:
-    machine:
-      image: ubuntu-2204:current
+  build-publish:
+    executor:
+      name: node/default
+      tag: 18.12.0
     working_directory: ~/rcr
     steps:
       - attach_workspace:
@@ -42,17 +43,8 @@ jobs:
       - run:
           name: Build and publish package
           command: |
-            VERSION_TAG=${CIRCLE_TAG/v/''}
-
-            echo $VERSION_TAG
-
-  # deploy:
-  #   machine:
-  #     image: ubuntu-2204:current
-  #   steps:
-  #     - run:
-  #         name: Trigger webhook
-  #         command: curl $DEPLOY_HOOK_URL
+            export NPM_TOKEN=$NPMJS_TOKEN
+            yarn publish --non-interactive --access public
 
 
 workflows:
@@ -63,9 +55,9 @@ workflows:
       - lint:
           requires:
             - install packages
-      - build:
-          requires:
-            - lint
+      # - build-publish:
+      #     requires:
+      #       - lint
 
   deploy:
     jobs:
@@ -86,7 +78,7 @@ workflows:
                 - /^v.*/
             branches:
               ignore: /.*/
-      - build:
+      - build-publish:
           requires:
             - lint
           filters:
@@ -95,13 +87,3 @@ workflows:
                 - /^v.*/
             branches:
               ignore: /.*/
-      # - deploy:
-      #     requires:
-      #       - build
-      #     filters:
-      #       tags:
-      #         only:
-      #           - /^v.*/
-      #       branches:
-      #         ignore: /.*/
-     
