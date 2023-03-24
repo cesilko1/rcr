@@ -41,7 +41,7 @@ jobs:
       - attach_workspace:
           at: ~/rcr
       - run:
-          name: Lint
+          name: Unit test
           command: yarn test
 
   build-publish:
