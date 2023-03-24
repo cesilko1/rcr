@@ -2,7 +2,7 @@
 
 **React call rest**
 
-This library is inspired by the [SWR](https://swr.vercel.app/) library but is more lightweight and developer-friendly. It comes with TypeScript support and types are included in the package. It has a slightly different API for using hooks than the mentioned SWR
+This library is inspired by the [SWR](https://swr.vercel.app/) library but is more lightweight and developer-friendly. It comes with TypeScript support and types are included in the package. It has a slightly different API for using hooks than the mentioned SWR.
 
 
 ## Installation

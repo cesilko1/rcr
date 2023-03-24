@@ -16,8 +16,6 @@ export const useErrorHandler = <Args extends unknown[], Res>(
 ): UseErrorHandler<Args, Res> => {
   const context = useContext(RCRContext);
 
-  if (!context) throw new Error('RCR hook used outside RCRProvider!');
-
   return async (...args: Args): Promise<CallResult<Res>> => {
     let data, errorMessage;
 
@@ -29,7 +27,7 @@ export const useErrorHandler = <Args extends unknown[], Res>(
 
       if (opts?.errorHandler) {
         opts.errorHandler(err);
-      } else if (context.errorHandler) {
+      } else if (context?.errorHandler) {
         context.errorHandler(err);
       } else {
         console.warn('Error handler for RCR was not provided');

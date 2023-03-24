@@ -32,6 +32,18 @@ jobs:
           name: Lint
           command: yarn lint
 
+  test:
+    executor:
+      name: node/default
+      tag: 18.12.0
+    working_directory: ~/rcr
+    steps:
+      - attach_workspace:
+          at: ~/rcr
+      - run:
+          name: Lint
+          command: yarn test
+
   build-publish:
     executor:
       name: node/default
@@ -54,6 +66,9 @@ workflows:
       - lint:
           requires:
             - install packages
+      - test:
+          requires:
+            - install packages
 
   publish:
     jobs:
@@ -66,6 +81,15 @@ workflows:
             branches:
               ignore: /.*/
       - lint:
+          requires:
+            - install packages
+          filters:
+            tags:
+              only:
+                - /^v.*/
+            branches:
+              ignore: /.*/
+      - test:
           requires:
             - install packages
           filters:
