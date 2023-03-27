@@ -91,3 +91,63 @@ The *request* object:
   * `errorMessage` - Error message which is thrown by fetcher function
   * `revalidate` - Function which performs like *call* but *loading* is false while revalidating
   * `revalidating` - Boolean that indicates revalidation
+
+### useMutateApi
+
+The *useMutateApi* hook is suitable for sending data to server.
+
+#### Example
+
+Again we need a fetcher function, but now it register nwe user.
+
+```typescript
+// userAPi.ts
+
+// ...
+
+export const registerUser = async (userName: string): Promise<void> => {
+  await axios.post('/users', { userName });
+}
+```
+
+Using hook in component:
+
+```tsx
+// RegisterUser.tsx
+import { registerUser } from './userApi.ts';
+import { useMutateApi } from '@vilem/rcr';
+import { useState } from 'react';
+
+export default User = () => {
+  const [name, setName] = useState<string | null>(null);
+  const request = useMutateApi(registerUser);
+
+  const handleSubmit = async () => {
+    const {data, errorMessage} = request.call(name);
+
+    console.log(data);
+    console.log(errorMessage);
+  }
+
+  return (
+    <div>
+      <span>User name</span>
+      <input type="text" onChange={(e) => {setName(e.target.value)}} value={name} />
+      <button
+        onClick={handleSubmit}
+      >
+        {request.loading ? 'Sending...' : 'Send'}
+      </button>
+    </div>
+  )
+}
+```
+
+The *request* object:
+
+  * `call` - Function that reloads all data
+  * `loading` - Boolean that indicates the first loading of data
+  * `data` - This is the returned value of fetcher function
+  * `errorMessage` - Error message which is thrown by fetcher function
+
+**Note:** Currently the *useMutateApi* hook works the same as *useLazyFetchApi*.

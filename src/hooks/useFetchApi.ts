@@ -44,7 +44,7 @@ export const useFetchApi: UseFetchApi = <Args extends unknown[], Res>(
     revalidateOnArgsChange: opts.revalidateOnArgsChange ?? true,
     errorHandler: opts.errorHandler,
     initialData: opts.initialData,
-    revalidateOnFocus: opts.revalidateOnFocus ?? true
+    revalidateOnFocus: opts.revalidateOnFocus ?? true,
   };
 
   const [result, setResult] = useState<CallResult<Res> | null>(
