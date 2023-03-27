@@ -4,11 +4,11 @@ import { useRef, useCallback, useEffect } from 'react';
 // @ts-ignore
 type Callback<T extends unknown[]> = (...args: [...T]) => void | unknown | Promise<void | unknown>;
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 export const useCallbackOnInterval = <T extends unknown[]>(
-  cb: Callback<T>,
-  interval?: number,
+    cb: Callback<T>,
+    interval?: number,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   ...args: [...T]
 ): void => {
   const timeoutRef = useRef<NodeJS.Timeout>();

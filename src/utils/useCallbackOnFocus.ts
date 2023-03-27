@@ -4,11 +4,11 @@ import { useCallback, useEffect } from 'react';
 // @ts-ignore
 type Callback<T extends unknown[]> = (...args: [...T]) => void | unknown | Promise<void | unknown>;
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 export const useCallbackOnFocus = <T extends unknown[]>(
   cb: Callback<T>,
   enable?: boolean,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ...args: [...T]
 ): void => {
   const callback = useCallback(() => {
