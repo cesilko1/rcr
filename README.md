@@ -2,8 +2,11 @@
 
 **React call rest**
 
-This library is inspired by the [SWR](https://swr.vercel.app/) library but is more lightweight and developer-friendly. It comes with TypeScript support and types are included in the package. It has a slightly different API for using hooks than the mentioned SWR.
+This library, which contains a set of React hooks, was created to simplify the API calls from React components and to enhance the developer experience through its universality, simplicity, and built-in TypeScript support.
 
+The library is suitable for applications with dynamic data rather than those with static data. In the future, WebSocket support will definitely be added.
+
+Feel free to open a pull request, issue or leave a feedback.
 
 ## Installation
 
@@ -37,7 +40,7 @@ The *useFetchApi* hook simplifies calling asynchronous APIs in React and automat
 
 #### Example
 
-You need to define *fetcher function* for fetching user by *userId*:
+You need to define a *fetcher function*, the *fetch api*, *axios* or whatever you want can be used in the fetcher function.
 
 ```typescript
 // userApi.ts
@@ -59,6 +62,12 @@ import { useFetchApi } from '@vilem/rcr';
 
 export default User = () => {
   const request = useFetchApi(getUser, 1);
+
+  // a configuration object can also be used
+  const requestWithOptions = useFetchApi(getUser, {
+    revalidateOnArgsChange: false,
+    revalidateOnFocus: false
+  }, 1)
 
   if (request.loading || request.revalidating) return (
     <div>
