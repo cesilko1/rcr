@@ -5,10 +5,10 @@ import { useRef, useCallback, useEffect } from 'react';
 type Callback<T extends unknown[]> = (...args: [...T]) => void | unknown | Promise<void | unknown>;
 
 export const useCallbackOnInterval = <T extends unknown[]>(
-    cb: Callback<T>,
-    interval?: number,
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+  cb: Callback<T>,
+  interval?: number,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ...args: [...T]
 ): void => {
   const timeoutRef = useRef<NodeJS.Timeout>();
