@@ -1,11 +1,12 @@
 import { CallResult, Callback, ApiHook, ErrorHandlerOptions } from '../types';
-import { useErrorHandler, useCallbackOnFocus } from '../utils';
+import { useErrorHandler, useCallbackOnFocus, useCallbackOnInterval } from '../utils';
 import { useState, useEffect } from 'react';
 
 export type FetchApiOptions<T> = ErrorHandlerOptions & {
   initialData?: T;
   revalidateOnArgsChange?: boolean;
   revalidateOnFocus?: boolean;
+  revalidateInterval?: number;
 };
 
 export type ArgsWithOptions<T extends unknown[], K> =
@@ -30,7 +31,7 @@ export interface UseFetchApi {
 export const useFetchApi: UseFetchApi = <Args extends unknown[], Res>(
   apiCallback: Callback<Args, Res>,
   ...args: ArgsWithOptions<Args, Res>
-): ApiHookRevalidate<Args, Res> => {
+) => {
   const [loading, setLoading] = useState(true);
   const [revalidating, setRevalidating] = useState(true);
 
@@ -42,9 +43,10 @@ export const useFetchApi: UseFetchApi = <Args extends unknown[], Res>(
 
   const options: FetchApiOptions<Res> = {
     revalidateOnArgsChange: opts.revalidateOnArgsChange ?? true,
+    revalidateOnFocus: opts.revalidateOnFocus ?? true,
+    revalidateInterval: opts.revalidateInterval,
     errorHandler: opts.errorHandler,
     initialData: opts.initialData,
-    revalidateOnFocus: opts.revalidateOnFocus ?? true,
   };
 
   const [result, setResult] = useState<CallResult<Res> | null>(
@@ -70,7 +72,8 @@ export const useFetchApi: UseFetchApi = <Args extends unknown[], Res>(
     return response;
   };
 
-  useCallbackOnFocus(revalidate);
+  useCallbackOnFocus(revalidate, options.revalidateOnFocus);
+  useCallbackOnInterval(revalidate, options.revalidateInterval);
 
   useEffect(() => {
     call(...(args as Args));

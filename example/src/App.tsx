@@ -8,8 +8,9 @@ const fetcher = async (data: string): Promise<string> => {
 
 function App() {
   const request = useFetchApi(fetcher, {
+    revalidateOnFocus: false,
+    revalidateInterval: 5000
   }, "sdfsdf");
-
 
   return (
     <div className="App">
