@@ -1,5 +1,5 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "React call rest - typesafe react hooks for simple calling rest api.",
   "license": "MIT",
   "main": "dist/index.js",
