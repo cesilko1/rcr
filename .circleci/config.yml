@@ -101,6 +101,7 @@ workflows:
       - build-publish:
           requires:
             - lint
+            - test
           filters:
             tags:
               only:

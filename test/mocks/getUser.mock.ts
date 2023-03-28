@@ -4,17 +4,21 @@ export interface User {
   id: number;
 }
 
-export const getUser = async (id: number): Promise<User> => {
-  const user: User = {
+export const mockUser = (id: number): User => {
+  return {
     id,
     email: `user.${id}@emial.com`,
     userName: `Cool User${id}`,
   }
+}
+
+export const getUser = async (id: number): Promise<User> => {
+  const user = mockUser(id);
 
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(user)
-    }, 500);
+    }, 250);
   });
 }
 
