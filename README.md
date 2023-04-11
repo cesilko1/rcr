@@ -123,7 +123,7 @@ export default User = () => {
   const request = useMutateApi(registerUser);
 
   const handleSubmit = async () => {
-    const {data, errorMessage} = request.call(name);
+    const {data, errorMessage} = await request.call(name);
 
     console.log(data);
     console.log(errorMessage);
