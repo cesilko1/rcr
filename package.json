@@ -18,7 +18,7 @@
     "prepare": "husky install && tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "test": "jest",
+    "test": "jest --verbose",
     "test:watch": "jest --watch",
     "preversion": "yarn format && yarn lint && yarn test",
     "postversion": "git push && git push --tags"
