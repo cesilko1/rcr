@@ -15,7 +15,7 @@
     "build": "tsdx build",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx src",
     "format": "yarn lint --fix && yarn prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "prepare": "tsdx build",
+    "prepare": "husky install && tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "test": "jest",
@@ -25,11 +25,6 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn format && yarn lint"
-    }
   },
   "name": "@vilem/rcr",
   "author": "Vilém Raška",
