@@ -6,7 +6,7 @@ describe('unit: useFetchApi', () => {
   const user = mockUser(1);
   const { result } = renderHook(() => useFetchApi(getUser, 1));
 
-  it('Should return user', async () => {
+  it('handle loading logic and return user', async () => {
     expect(result.current.loading).toBe(true);
     expect(result.current.revalidating).toBe(true);
 
