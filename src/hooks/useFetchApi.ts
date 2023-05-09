@@ -57,6 +57,7 @@ export const useFetchApi: UseFetchApi = <Args extends unknown[], Res>(
 
   const call = async (...args: Args): Promise<CallResult<Res>> => {
     setLoading(true);
+    setRevalidating(true);
     const response = await requestWrapper(...args);
     setResult(response);
     setLoading(false);
